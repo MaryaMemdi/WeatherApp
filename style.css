@@ -1,0 +1,39 @@
+body {
+  background: #ffffff url(/images/background.jpg) center center/cover no-repeat;
+}
+.container {
+  width: 50%;
+  align-items: center;
+  margin: auto;
+  /* background-color: aquamarine; */
+  text-align: center;
+}
+.city {
+  font-size: 70px;
+}
+.temperature {
+  font-size: 35px;
+}
+.weather {
+  font-size: 35px;
+}
+.icon {
+  width: 60px;
+  height: 60px;
+}
+.search {
+  border-radius: 5px;
+  border: 1px solid rgba(199, 202, 203, 0.1);
+  width: 40%;
+
+  height: auto;
+  font-size: 20px;
+  margin: 20px;
+}
+.search:hover {
+  border: 2px solid rgba(12, 105, 234, 0.8);
+}
+.buttonSearch {
+  background: none;
+  border: none;
+}
