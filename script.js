@@ -5,17 +5,30 @@ const searchcity = document.querySelector(".search");
 console.log(searchcity.value);
 const city = document.querySelector(".city");
 const buttonIcon = document.querySelector(".buttonSearch");
+const temperature = document.querySelector(".temperature");
+const icon = document.querySelector(".icon");
+const weatherDiv = document.querySelector(".weather");
+
 console.log(buttonIcon);
-//get location and weather
+let cityName;
+let response;
+console.log(cityName);
+async function getWeather() {
+  response = await (
+    await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIKey}`
+    )
+  ).json();
+  console.log(response);
+  temperature.textContent = response.main.temp;
+  weatherDiv.textContent = response.weather[0].main;
+  return response;
+}
+
 buttonIcon.addEventListener("click", (event) => {
   event.preventDefault();
-  console.log(searchcity.value);
-  city.textContent = searchcity.value;
-  return searchcity.value;
+  cityName = searchcity.value;
+  city.textContent = cityName;
+  console.log(cityName);
+  getWeather();
 });
-let cityName = searchcity.value;
-const getLocation = fetch(
-  `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=${APIKey}`
-)
-  .then((response) => response.json())
-  .then((data) => console.log(data));
