@@ -7,6 +7,7 @@ const city = document.querySelector(".city");
 const buttonIcon = document.querySelector(".buttonSearch");
 const temperature = document.querySelector(".temperature");
 const icon = document.querySelector(".icon");
+console.log(icon);
 const weatherDiv = document.querySelector(".weather");
 
 console.log(buttonIcon);
@@ -20,15 +21,20 @@ async function getWeather() {
     )
   ).json();
   console.log(response);
-  temperature.textContent = response.main.temp;
-  weatherDiv.textContent = response.weather[0].main;
+  let convertTemp = Math.trunc(response.main.temp - 273.15);
+
+  temperature.textContent = `${convertTemp} °c`;
+  weatherDiv.textContent = response.weather[0].description;
+  icon.src = `/images/${response.weather[0].main}.png`;
+
   return response;
 }
 
 buttonIcon.addEventListener("click", (event) => {
   event.preventDefault();
   cityName = searchcity.value;
-  city.textContent = cityName;
+
+  city.textContent = cityName.toUpperCase();
   console.log(cityName);
   getWeather();
 });
