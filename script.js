@@ -6,7 +6,7 @@ console.log(searchcity.value);
 const city = document.querySelector(".city");
 const buttonIcon = document.querySelector(".buttonSearch");
 const temperature = document.querySelector(".temperature");
-const icon = document.querySelector(".icon");
+const icon = document.querySelector("#icon");
 console.log(icon);
 const weatherDiv = document.querySelector(".weather");
 
@@ -25,7 +25,8 @@ async function getWeather() {
 
   temperature.textContent = `${convertTemp} °c`;
   weatherDiv.textContent = response.weather[0].description;
-  icon.src = `/images/${response.weather[0].main}.png`;
+  // icon.src = `/images/${response.weather[0].main}.png`;
+  icon.innerHTML = `<img class="icon" src='/images/${response.weather[0].main}.png'>`;
 
   return response;
 }
