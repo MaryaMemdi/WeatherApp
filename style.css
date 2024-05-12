@@ -1,5 +1,5 @@
 body {
-  background: #ffffff url(/images/background.jpg) center center/cover no-repeat;
+  background: #ffffff url(./images/background.jpg) center center/cover no-repeat;
 }
 .container {
   width: 50%;
