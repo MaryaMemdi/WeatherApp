@@ -26,7 +26,7 @@ async function getWeather() {
   temperature.textContent = `${convertTemp} °c`;
   weatherDiv.textContent = response.weather[0].description;
   // icon.src = `/images/${response.weather[0].main}.png`;
-  icon.innerHTML = `<img class="icon" src='/images/${response.weather[0].main}.png'>`;
+  icon.innerHTML = `<img class="icon" src='./images/${response.weather[0].main}.png'>`;
 
   return response;
 }
